@@ -4,19 +4,23 @@
 
 #ifndef SPAN_HPP
 #define SPAN_HPP
-#include <vector>
 
+#include <algorithm>
+#include <set>
+#include <stdexcept>
+#include <climits>
 
 class Span {
 	private:
 		const unsigned int		N;
-		std::vector<int>		data;
+		std::multiset<int>		data;
 
 	public:
 		Span(unsigned int N);
 		~Span();
 
 		void	addNumber(int n);
+		void	addNumbers(std::set<int>::iterator begin, std::set<int>::iterator end);
 		int		shortestSpan() const;
 		int		longestSpan() const;
 
