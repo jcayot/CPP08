@@ -12,12 +12,15 @@
 
 class Span {
 	private:
-		const unsigned int		N;
-		std::multiset<int>		data;
+		unsigned int		N;
+		std::multiset<int>	data;
 
 	public:
 		Span(unsigned int N);
+		Span(const Span &);
 		~Span();
+
+		Span &operator=(const Span &);
 
 		void	addNumber(int n);
 		void	addNumbers(std::set<int>::iterator begin, std::set<int>::iterator end);
@@ -26,9 +29,6 @@ class Span {
 
 	private:
 		Span();
-		Span(const Span &);
-
-		Span &operator=(const Span &);
 };
 
 

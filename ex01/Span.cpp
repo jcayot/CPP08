@@ -6,7 +6,19 @@
 
 Span::Span(unsigned int N) : N(N) {}
 
+Span::Span(const Span& span) {
+	*this = span;
+}
+
 Span::~Span() {}
+
+Span& Span::operator=(const Span& span) {
+	if (this != &span) {
+		this->N = span.N;
+		this->data = span.data;
+	}
+	return (*this);
+}
 
 void Span::addNumber(int n) {
 	if (data.size() >= N)
