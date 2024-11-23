@@ -6,20 +6,16 @@
 # define EASYFIND_HPP
 
 # include <algorithm>
-
-class ValueNotFoundException : public std::exception {
-	public:
-		const char* what() const noexcept override {
-			return ("Number not found in the container");
-		}
-};
+# include <iostream>
+# include <list>
+# include <vector>
 
 template <typename T>
 typename T::iterator	easyfind(T& container, int number) {
 	typename T::iterator	value = std::find(container.begin(), container.end(), number);
 
 	if (value == container.end())
-		throw ValueNotFoundException();
+		throw std::runtime_error("Number not found in the container");
 
 	return (value);
 }
