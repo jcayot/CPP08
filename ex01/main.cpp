@@ -5,9 +5,6 @@
 #include <iostream>
 #include "Span.hpp"
 
-#include <iostream>
-#include "Span.hpp"
-
 int main() {
 	Span sp(5);
 

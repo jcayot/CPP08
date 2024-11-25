@@ -9,6 +9,8 @@
 #include <set>
 #include <stdexcept>
 #include <climits>
+#include <vector>
+#include <numeric>
 
 class Span {
 	private:

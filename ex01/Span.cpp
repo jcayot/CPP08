@@ -36,16 +36,10 @@ int Span::shortestSpan() const {
 	if (data.size() < 2)
 		throw std::out_of_range("Data must contain at least two values");
 
-	std::set<int>::iterator value = data.begin();
-	int	previousValue = *value;
-	int	smallestSpan = INT_MAX;
+	std::vector<int> differences(data.size());
+	std::adjacent_difference(data.begin(), data.end(), differences.begin());
 
-	for (++value; value != data.end(); ++value) {
-		if (*value - previousValue < smallestSpan)
-			smallestSpan = *value - previousValue;
-		previousValue = *value;
-	}
-	return (smallestSpan);
+	return (*std::min_element(differences.begin(), differences.end()));
 }
 
 int Span::longestSpan() const {
